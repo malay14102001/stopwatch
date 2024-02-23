@@ -34,8 +34,12 @@ export default function App() {
   }
 
   function formatTime() {
-    let minutes = Math.floor((elapsedTime / 60000) % 60).toString().padStart(2, '0');
-    let seconds = Math.floor((elapsedTime / 1000) % 60).toString().padStart(2, '0');
+    let minutes = Math.floor(elapsedTime / 60000)
+      .toString()
+      .padStart(2, "0");
+    let seconds = Math.floor((elapsedTime % 60000) / 1000)
+      .toString()
+      .padStart(2, "0");
 
     return `${minutes}:${seconds}`;
   }
@@ -43,7 +47,9 @@ export default function App() {
   return (
     <div className="stopwatchStyle">
       <h1>Stopwatch</h1>
-      <div className="display"><p>Time: {elapsedTime === 0 ? '0:00' : formatTime()}</p></div>
+      <div className="display">
+        <p>Time: {elapsedTime === 0 ? "0:00" : formatTime()}</p>
+      </div>
       <div className="control">
         <button onClick={start} className="start-button">
           Start
