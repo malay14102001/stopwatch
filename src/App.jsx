@@ -36,7 +36,7 @@ export default function App() {
   function formatTime() {
     let minutes = Math.floor(elapsedTime / 60000)
       .toString()
-      .padStart(2, "0");
+      .padStart(1, "0");
     let seconds = Math.floor((elapsedTime % 60000) / 1000)
       .toString()
       .padStart(2, "0");
